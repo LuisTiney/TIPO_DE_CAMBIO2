@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class TipoCambioService {
 
-  // Nueva API que sí incluye el Quetzal guatemalteco (GTQ)
+  // Nueva API que incluye el Quetzal guatemalteco (GTQ)
   private urlApi = 'https://open.er-api.com/v6/latest/USD';
 
   constructor(private http: HttpClient) {}
