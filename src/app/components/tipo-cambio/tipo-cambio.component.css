@@ -1,0 +1,197 @@
+/* ================================================
+   PANTALLA COMPLETA - Fondo degradado azul
+   ================================================ */
+.pantalla-completa {
+  min-height: 100vh;           /* Ocupa toda la altura de la pantalla */
+  display: flex;               /* Usamos flexbox para centrar */
+  align-items: center;         /* Centra verticalmente */
+  justify-content: center;     /* Centra horizontalmente */
+  padding: 20px;               /* Espacio en los bordes en móvil */
+  background: linear-gradient(135deg, #1a237e, #1565c0);
+}
+
+/* ================================================
+   TARJETA - Caja blanca al centro
+   ================================================ */
+.tarjeta {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 480px;            /* Tamaño máximo en pantallas grandes */
+  overflow: hidden;
+}
+
+/* ================================================
+   ENCABEZADO - Parte azul de arriba
+   ================================================ */
+.encabezado {
+  background: linear-gradient(135deg, #1565c0, #0d47a1);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.banderas {
+  font-size: 2rem;
+}
+
+.encabezado h1 {
+  margin: 10px 0 5px;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.subtitulo {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.85;               /* Un poco transparente para que sea secundario */
+}
+
+/* ================================================
+   CUERPO - Zona central donde aparece el dato
+   ================================================ */
+.cuerpo {
+  padding: 40px 30px;
+  text-align: center;
+  min-height: 140px;           /* Altura mínima para que no se vea pequeño */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Sección de carga --- */
+.seccion-cargando {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #888;
+}
+
+/* Círculo que gira (spinner) */
+.circulo-girando {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e0e0e0;
+  border-top-color: #1565c0;   /* Solo el borde de arriba es azul */
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+}
+
+/* Animación de giro */
+@keyframes girar {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Sección de datos --- */
+.conversion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;             /* En móvil pequeño puede bajar a otra línea */
+  margin-bottom: 16px;
+}
+
+.moneda-izquierda {
+  font-size: 1.4rem;
+  color: #555;
+  font-weight: 600;
+}
+
+.signo-igual {
+  font-size: 1.8rem;
+  color: #1565c0;
+}
+
+/* El valor en quetzales es el más grande y llamativo */
+.moneda-derecha {
+  font-size: 2.2rem;
+  color: #1565c0;
+  font-weight: 800;
+}
+
+.hora-actualizacion {
+  color: #888;
+  font-size: 0.82rem;
+  margin: 0;
+}
+
+/* --- Sección de error --- */
+.seccion-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.icono-error {
+  font-size: 2rem;
+}
+
+.seccion-error p {
+  color: #c62828;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ================================================
+   PIE - Botón y fuente
+   ================================================ */
+.pie {
+  padding: 20px 30px 30px;
+  text-align: center;
+  border-top: 1px solid #f0f0f0;
+}
+
+.boton-actualizar {
+  background: linear-gradient(135deg, #1565c0, #0d47a1);
+  color: white;
+  border: none;
+  padding: 12px 36px;
+  border-radius: 50px;         /* Bordes redondeados tipo píldora */
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;   /* Animación suave al hacer hover */
+  width: 100%;
+  max-width: 220px;
+}
+
+/* Efecto al pasar el mouse por encima */
+.boton-actualizar:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(21, 101, 192, 0.4);
+}
+
+/* Cuando está deshabilitado se ve opaco */
+.boton-actualizar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.texto-fuente {
+  color: #bbb;
+  font-size: 0.75rem;
+  margin: 10px 0 0;
+}
+
+/* ================================================
+   RESPONSIVE - Ajustes según tamaño de pantalla
+   ================================================ */
+
+/* Móvil (menos de 480px) */
+@media (max-width: 480px) {
+  .tarjeta { border-radius: 16px; }
+  .encabezado { padding: 24px 16px; }
+  .encabezado h1 { font-size: 1.3rem; }
+  .moneda-derecha { font-size: 1.8rem; }
+  .cuerpo { padding: 30px 20px; }
+}
+
+/* Tablet y escritorio (más de 768px) */
+@media (min-width: 768px) {
+  .tarjeta { max-width: 520px; }
+  .moneda-derecha { font-size: 2.6rem; }
+}

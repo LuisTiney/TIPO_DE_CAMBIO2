@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { TipoCambioComponent } from './components/tipo-cambio/tipo-cambio.component';
 
+// Componente raíz: simplemente carga nuestra pantalla de tipo de cambio
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [TipoCambioComponent],
+  template: `<app-tipo-cambio></app-tipo-cambio>`
 })
-export class AppComponent {
-  title = 'TIPO_DE_CAMBIO2';
-}
+export class AppComponent {}

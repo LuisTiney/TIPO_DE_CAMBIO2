@@ -1,0 +1,57 @@
+<!-- Contenedor principal que centra todo en pantalla -->
+<div class="pantalla-completa">
+
+  <!-- Tarjeta central -->
+  <div class="tarjeta">
+
+    <!-- Encabezado de la tarjeta -->
+    <div class="encabezado">
+      <span class="banderas">🇺🇸 ➡️ 🇬🇹</span>
+      <h1>Tipo de Cambio</h1>
+      <p class="subtitulo">Dólar (USD) → Quetzal (GTQ)</p>
+    </div>
+
+    <!-- Cuerpo de la tarjeta: muestra un estado a la vez -->
+    <div class="cuerpo">
+
+      <!-- Estado 1: Cargando -->
+      <div *ngIf="estaCargando" class="seccion-cargando">
+        <div class="circulo-girando"></div>
+        <p>Consultando tipo de cambio...</p>
+      </div>
+
+      <!-- Estado 2: Datos listos -->
+      <div *ngIf="!estaCargando && valorQuetzal !== null && !mensajeDeError" class="seccion-datos">
+
+        <!-- Muestra la conversión -->
+        <div class="conversion">
+          <span class="moneda-izquierda">1 USD</span>
+          <span class="signo-igual">=</span>
+          <span class="moneda-derecha">{{ valorQuetzal | number:'1.2-4' }} GTQ</span>
+        </div>
+
+        <!-- Muestra la hora de actualización -->
+        <p class="hora-actualizacion">🕐 Actualizado: {{ horaDeActualizacion }}</p>
+
+      </div>
+
+      <!-- Estado 3: Error -->
+      <div *ngIf="mensajeDeError" class="seccion-error">
+        <span class="icono-error">⚠️</span>
+        <p>{{ mensajeDeError }}</p>
+      </div>
+
+    </div>
+
+    <!-- Pie de la tarjeta con botón de actualizar -->
+    <div class="pie">
+      <button (click)="consultarAPI()" [disabled]="estaCargando" class="boton-actualizar">
+        <!-- Cambia el texto según si está cargando o no -->
+        <span *ngIf="!estaCargando">🔄 Actualizar</span>
+        <span *ngIf="estaCargando">Actualizando...</span>
+      </button>
+      <p class="texto-fuente">Fuente: frankfurter.app</p>
+    </div>
+
+  </div>
+</div>
